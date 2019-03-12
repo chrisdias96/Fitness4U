@@ -1,9 +1,182 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Fitness4U</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Navigation Drawer -->
+    <string name="title_workouts">Workouts</string>
+    <string name="title_history">History</string>
+    <string name="title_tips">Tips &amp; Tricks</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- WelcomeScreenFragment -->
+    <string name="welcome_text">WELCOME</string>
+
+    <!-- Spinner dropdown for Height input -->
+    <string-array name="heightDropdown">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+
+    <string name="first_name_label">First Name:</string>
+    <string name="last_name_label">Last Name:</string>
+    <string name="gender_label">Gender:</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
+    <string name="radio_other">Other</string>
+    <string name="age_label">Age:</string>
+    <string name="weight_label">Weight:</string>
+    <string name="height_in_feet_label">Height in Feet:</string>
+    <string name="height_in_inches_label">Height in Inches:</string>
+    <string name="goal_weight_label">Goal Weight:</string>
+    <string name="submit_profile">Submit Profile</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string-array name="pref_gender_list">
+        <item name="maleGender">Male</item>
+        <item name="femaleGender">Female</item>
+        <item name="otherGender">Other</item>
+    </string-array>
+
+
+    <!-- Strings related to xml folder -->
+
+
+    <!--
+    pref_headers.xml
+    -->
+    <string name="pref_header_profile">Profile</string>
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_header_general_summary"><![CDATA[General settings & notifications]]></string>
+    <string name="pref_header_profile_summary"><![CDATA[Change & edit your information]]></string>
+    <string name="pref_header_exercises_summary">Choose which exercises you want to include in your workouts</string>
+
+
+    <!--
+    pref_profile.xml
+    -->
+    <string name="pref_profile_fName">First Name</string>
+    <string name="pref_profile_lName">Last Name</string>
+    <string name="pref_profile_gender">Gender</string>
+    <string name="pref_profile_age">Age</string>
+    <string name="pref_profile_weight">Weight</string>
+    <string name="pref_profile_goal_weight">Goal Weight</string>
+
+
+    <!--
+    pref_general.xml
+    -->
+    <string name="pref_general_settings_title">Settings</string>
+
+    <string name="pref_general_profile_title">Profile</string>
+    <string name="pref_general_exercise_title">Exercises</string>
+    <string name="pref_general_coach_title">Voice Coach</string>
+
+    <string name="pref_general_profile_summary">Edit your personal information</string>
+    <string name="pref_general_exercise_summary">Choose which exercises you want to perform</string>
+    <string name="pref_general_coach_summary">Would you like to hear the voice coach guide you?</string>
+
+    <!--
+    pref_exercises.xml
+    -->
+    <string name="pref_exercise_jumping_jacks_title">Jumping Jacks</string>
+    <string name="pref_exercise_plank_title">Plank</string>
+    <string name="pref_exercise_burpees_title">Burpees</string>
+    <string name="pref_exercise_lunges_title">Lunges</string>
+    <string name="pref_exercise_pushups_title">Push ups</string>
+    <string name="pref_exercise_situps_title">Sit ups</string>
+    <string name="pref_exercise_high_knees_title">High Knees</string>
+    <string name="pref_exercise_wall_sit_title">Wall Sit</string>
+    <string name="pref_exercise_side_plank_title">Side Plank</string>
+    <string name="pref_exercise_tricep_dips_title">Tricep Dips</string>
+    <string name="pref_exercise_leg_lift_title">Leg Lift</string>
+    <string name="pref_exercise_russian_twist_title">Russian Twist</string>
+    <string name="pref_exercise_squats_title">Squats</string>
+
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+
+
 </resources>
