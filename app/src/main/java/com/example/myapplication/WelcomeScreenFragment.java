@@ -1,29 +1,29 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.health.SystemHealthManager;
-import android.provider.MediaStore;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.Objects;
+import com.example.myapplication.JavaBean.Profile;
+
 
 
 /**
@@ -45,21 +45,14 @@ public class WelcomeScreenFragment extends Fragment implements AdapterView.OnIte
     private String mParam1;
     private String mParam2;
 
+    FragmentManager fm;
+
     String gender;
+    String height;
 
-    TextView genderText;
-    TextView ageText;
-    TextView weightText;
-    TextView goalWeightText;
-    TextView heightText;
+    SharedPreferences sf;
+    SharedPreferences.Editor editor;
 
-    RadioGroup radioGroup;
-    RadioButton maleRadio;
-    RadioButton femaleRadio;
-    EditText ageEditText;
-    EditText weightEditText;
-    EditText goalWeightEditText;
-    Button submitButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -88,6 +81,18 @@ public class WelcomeScreenFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sf = PreferenceManager.getDefaultSharedPreferences(getContext());
+        editor = sf.edit();
+
+        boolean isProfileFormCompleted = sf.getBoolean("form_not_completed", false);
+
+        if (isProfileFormCompleted) {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -100,48 +105,49 @@ public class WelcomeScreenFragment extends Fragment implements AdapterView.OnIte
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_welcome_screen, container, false);
 
-        genderText = view.findViewById(R.id.genderLabel);
-        ageText = view.findViewById(R.id.ageLabel);
-        weightText = view.findViewById(R.id.weightLabel);
-        goalWeightText = view.findViewById(R.id.goalWeightLabel);
-        heightText = view.findViewById(R.id.heightLabel);
+        sf = PreferenceManager.getDefaultSharedPreferences(getContext());
+        editor = sf.edit();
 
-        radioGroup = view.findViewById(R.id.genderRadioGroup);
-        ageEditText = view.findViewById(R.id.ageEditText);
-        weightEditText = view.findViewById(R.id.weightEditText);
-        goalWeightEditText = view.findViewById(R.id.goalWeightEditText);
-        submitButton = view.findViewById(R.id.submitProfileButton);
+        fm = getActivity().getSupportFragmentManager();
 
-        final Spinner heightFeet = view.findViewById(R.id.heightFeet);
-        final Spinner heightInches = view.findViewById(R.id.heightInches);
+        final EditText firstNameEditText = view.findViewById(R.id.firstNameEditText);
+        firstNameEditText.setText(sf.getString("fName", ""));
+        final EditText lastNameEditText = view.findViewById(R.id.lastNameEditText);
+        lastNameEditText.setText(sf.getString("lName", ""));
+        final RadioGroup radioGroup = view.findViewById(R.id.genderRadioGroup);
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(),
-                R.array.heightDropdown, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this.getContext(),
-                R.array.heightDropdown, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        heightFeet.setAdapter(adapter);
-        heightFeet.setOnItemSelectedListener(this);
-        heightInches.setAdapter(adapter);
-        heightInches.setOnItemSelectedListener(this);
+        final EditText ageEditText = view.findViewById(R.id.ageEditText);
+        ageEditText.setText(sf.getString("age", ""));
+        final EditText weightEditText = view.findViewById(R.id.weightEditText);
+        weightEditText.setText(sf.getString("weight", ""));
+        final EditText goalWeightEditText = view.findViewById(R.id.goalWeightEditText);
+        goalWeightEditText.setText(sf.getString("goalWeight", ""));
+        final Button submitButton = view.findViewById(R.id.submitProfileButton);
+        final EditText heightFeetEditText = view.findViewById(R.id.heightFeet);
+        heightFeetEditText.setText(sf.getString("heightFeet", ""));
+        final EditText heightInchesEditText = view.findViewById(R.id.heightInches);
+        heightInchesEditText.setText(sf.getString("heightInches", ""));
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.maleRadioButton:
-                       maleRadio = view.findViewById(R.id.maleRadioButton);
-                       maleRadio.getText();
+                       final RadioButton maleRadio = view.findViewById(R.id.maleRadioButton);
+                        sf.edit().putBoolean("gender", maleRadio.isChecked()).apply();
                        gender = "Male";
                        radioGroup.setSelected(true);
                        break;
                     case R.id.femaleRadioButton:
-                        femaleRadio = view.findViewById(R.id.femaleRadioButton);
+                        final RadioButton femaleRadio = view.findViewById(R.id.femaleRadioButton);
+                        sf.edit().putBoolean("gender", femaleRadio.isChecked()).apply();
                         gender = "Female";
+                        radioGroup.setSelected(true);
+                        break;
+                    case R.id.otherRadioButton:
+                        final RadioButton otherRadio = view.findViewById(R.id.otherRadioButton);
+                        sf.edit().putBoolean("gender", otherRadio.isChecked()).apply();
+                        gender = "Other";
                         radioGroup.setSelected(true);
                         break;
                 }
@@ -203,43 +209,82 @@ public class WelcomeScreenFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
 
-                System.out.println(radioGroup.isSelected());
-                System.out.println(gender);
-                System.out.println(ageEditText.getText());
-                System.out.println(weightEditText.getText());
-                System.out.println(goalWeightEditText.getText());
-                System.out.println(heightFeet.getSelectedItem().toString() + "'" + heightInches.getSelectedItem().toString() + "\"");
 
+
+                if (firstNameEditText.getText().toString().isEmpty()) {
+                    final TextView firstNameText = view.findViewById(R.id.firstNameLabel);
+                    firstNameText.setTextColor(Color.RED);
+                }
+                if(lastNameEditText.getText().toString().isEmpty()) {
+                    final TextView lastNameText = view.findViewById(R.id.lastNameLabel);
+                    lastNameText.setTextColor(Color.RED);
+                }
                 if (!radioGroup.isSelected()) {
+                    final TextView genderText = view.findViewById(R.id.genderLabel);
                     genderText.setTextColor(Color.RED);
                 }
                 if (ageEditText.getText().toString().isEmpty()) {
+                    final TextView ageText = view.findViewById(R.id.ageLabel);
                     ageText.setTextColor(Color.RED);
                 }
                 if (weightEditText.getText().toString().isEmpty()) {
+                    final TextView weightText = view.findViewById(R.id.weightLabel);
                     weightText.setTextColor(Color.RED);
                 }
                 if (goalWeightEditText.getText().toString().isEmpty()) {
+                    final TextView goalWeightText = view.findViewById(R.id.goalWeightLabel);
                     goalWeightText.setTextColor(Color.RED);
                 }
-                if (heightFeet.getSelectedItem().toString().isEmpty() || heightInches.getSelectedItem().toString().isEmpty()) {
+                if (heightFeetEditText.getText().toString().isEmpty()) {
+                    final TextView heightText = view.findViewById(R.id.heightFeetLabel);
                     heightText.setTextColor(Color.RED);
                 }
+                if (heightInchesEditText.getText().toString().isEmpty()) {
+                    final TextView inchesText = view.findViewById(R.id.heightInchesLabel);
+                    inchesText.setTextColor(Color.RED);
+                }
 
-//                if (!radioGroup.isSelected() &&
-//                        !ageEditText.getText().toString().isEmpty() &&
-//                        !weightEditText.getText().toString().isEmpty() &&
-//                        !goalWeightEditText.getText().toString().isEmpty() &&
-//                        !heightFeet.getSelectedItem().toString().isEmpty() &&
-//                        !heightInches.getSelectedItem().toString().isEmpty()) {
-//
-//
-//                }
+                if(radioGroup.isSelected() &&
+                        !firstNameEditText.getText().toString().isEmpty() &&
+                        !lastNameEditText.getText().toString().isEmpty() &&
+                        !ageEditText.getText().toString().isEmpty() &&
+                        !weightEditText.getText().toString().isEmpty() &&
+                        !goalWeightEditText.getText().toString().isEmpty() &&
+                        !heightFeetEditText.getText().toString().isEmpty() &&
+                        !heightInchesEditText.getText().toString().isEmpty() ) {
+
+                    height = heightFeetEditText.getText().toString() + "'" + heightInchesEditText.getText().toString() + "\"";
+
+                    Profile.setFirstName(firstNameEditText.getText().toString());
+                    Profile.setLastName(lastNameEditText.getText().toString());
+                    Profile.setGender(gender);
+                    Profile.setAge(ageEditText.getText().toString());
+                    Profile.setWeight(weightEditText.getText().toString());
+                    Profile.setGoalWeight(goalWeightEditText.getText().toString());
+                    Profile.setHeightFeet(heightFeetEditText.getText().toString());
+                    Profile.setHeightInches(heightInchesEditText.getText().toString());
+
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    //transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_back_in, R.anim.slide_back_out);
+
+                    editor.putString("fName", Profile.getFirstName());
+                    editor.putString("lName", Profile.getLastName());
+                    editor.putString("gender", Profile.getGender());
+                    editor.putString("age", Profile.getAge());
+                    editor.putString("weight", Profile.getWeight());
+                    editor.putString("goalWeight", Profile.getGoalWeight());
+                    editor.putString("heightFeet", Profile.getHeightFeet());
+                    editor.putString("heightInches", Profile.getHeightInches());
+                    editor.putBoolean("form_not_completed", true);
+
+                    editor.apply();
 
 
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
 
-
-
+                }
             }
         });
 

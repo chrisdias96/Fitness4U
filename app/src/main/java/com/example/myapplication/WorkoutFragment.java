@@ -1,12 +1,23 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.jjoe64.graphview.DefaultLabelFormatter;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.LabelFormatter;
+import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.Viewport;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 /**
@@ -64,7 +75,33 @@ public class WorkoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_workout, container, false);
+        View view = inflater.inflate(R.layout.fragment_workout, container, false);
+
+//        GraphView graph = view.findViewById(R.id.graph);
+//        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
+//
+//        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+//                new DataPoint(0, 1),
+//                new DataPoint(1, 5),
+//                new DataPoint(2, 3)
+//        });
+//        graph.addSeries(series);
+//
+//        //Styling for the graph
+//        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+//            @Override
+//            public int get(DataPoint data) {
+//                return Color.GREEN;
+//            }
+//        });
+//
+//        series.setColor(Color.WHITE);
+//        series.setDataWidth(90);
+//        series.setSpacing(70);
+
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

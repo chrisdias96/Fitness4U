@@ -1,12 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,8 +20,7 @@ public class MainActivity extends AppCompatActivity
                     WelcomeScreenFragment.OnFragmentInteractionListener,
                     WorkoutFragment.OnFragmentInteractionListener,
                     HistoryFragment.OnFragmentInteractionListener,
-                    TipFragment.OnFragmentInteractionListener,
-                    SettingFragment.OnFragmentInteractionListener {
+                    TipFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
     DrawerLayout drawer;
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity
 
         if(savedInstanceState == null){
             FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.content, new WelcomeScreenFragment());
+            transaction.replace(R.id.content, new WorkoutFragment());
             transaction.commit();
         }
 
@@ -90,7 +87,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
@@ -113,10 +111,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.navigation_tips) {
             fm.beginTransaction()
             .replace(R.id.content, new TipFragment())
-            .commit();
-        } else if (id == R.id.action_settings) {
-            fm.beginTransaction()
-            .replace(R.id.content, new SettingFragment())
             .commit();
         }
 

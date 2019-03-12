@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,14 +17,16 @@ public class WelcomeActivity extends AppCompatActivity
         WelcomeScreenFragment.OnFragmentInteractionListener,
         WorkoutFragment.OnFragmentInteractionListener,
         HistoryFragment.OnFragmentInteractionListener,
-        TipFragment.OnFragmentInteractionListener,
-        SettingFragment.OnFragmentInteractionListener  {
+        TipFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
+
+    String profileState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_welcome);
 
         fm = getSupportFragmentManager();
@@ -31,6 +35,10 @@ public class WelcomeActivity extends AppCompatActivity
             FragmentTransaction transaction = fm.beginTransaction();
             transaction.replace(R.id.content, new WelcomeScreenFragment());
             transaction.commit();
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
 
     }

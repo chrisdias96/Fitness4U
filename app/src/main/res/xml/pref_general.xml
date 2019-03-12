@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<Preference-->
+        <!--android:title="@string/pref_general_profile_title"-->
+        <!--android:icon="@drawable/ic_person_black_24dp"-->
+        <!--android:summary="@string/pref_general_profile_summary"-->
+        <!--android:key="profileKey" />-->
+
+    <!--<Preference-->
+        <!--android:title="@string/pref_general_exercise_title"-->
+        <!--android:icon="@drawable/ic_directions_walk_black_24dp"-->
+        <!--android:summary="@string/pref_general_exercise_summary"-->
+        <!--android:key="exerciseKey" />-->
+
+    <CheckBoxPreference
+        android:title="@string/pref_general_coach_title"
+        android:icon="@drawable/ic_notifications_active_black_24dp"
+        android:summary="@string/pref_general_coach_summary"
+        android:key="ttsKey"
+        android:defaultValue="true" />
+
+</PreferenceScreen>

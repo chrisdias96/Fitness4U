@@ -26,25 +26,85 @@
         android:layout_height="2pt"
         android:layout_gravity="center"
         android:background="@color/colorBlack"
-        android:padding="8dp" />
+        android:padding="4dp" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp">
+        android:layout_height="match_parent">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:background="@color/colorSecondary"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/firstNameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/first_name_label"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/firstNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:backgroundTint="@color/colorBlack"
+                android:ems="10"
+                android:hint="ex. John"
+                android:inputType="textCapWords"
+                android:maxLength="20" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/lastNameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/last_name_label"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/lastNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:backgroundTint="@color/colorBlack"
+                android:ems="10"
+                android:hint="ex. Doe"
+                android:inputType="textCapWords"
+                android:maxLength="20" />
+
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:padding="8dp">
 
             <TextView
                 android:id="@+id/genderLabel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/coda"
                 android:gravity="center"
                 android:text="@string/gender_label"
@@ -55,9 +115,9 @@
 
             <RadioGroup
                 android:id="@+id/genderRadioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -68,8 +128,7 @@
                     android:buttonTint="@color/colorBlack"
                     android:fontFamily="@font/coda"
                     android:text="@string/radio_male"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <RadioButton
                     android:id="@+id/femaleRadioButton"
@@ -79,24 +138,32 @@
                     android:buttonTint="@color/colorBlack"
                     android:fontFamily="@font/coda"
                     android:text="@string/radio_female"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/otherRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorBlack"
+                    android:fontFamily="@font/coda"
+                    android:text="@string/radio_other"
+                    android:textSize="16sp" />
 
             </RadioGroup>
 
-        </TableRow>
+        </LinearLayout>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:background="@color/colorSecondary"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:id="@+id/ageLabel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:fontFamily="@font/coda"
                 android:gravity="center"
                 android:text="@string/age_label"
@@ -114,7 +181,8 @@
                 android:ems="10"
                 android:focusedByDefault="false"
                 android:hint="ex. 23"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="3" />
 
         </TableRow>
 
@@ -122,14 +190,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:background="@color/colorSecondary"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:id="@+id/weightLabel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:fontFamily="@font/coda"
                 android:gravity="center"
                 android:text="@string/weight_label"
@@ -145,8 +211,9 @@
                 android:layout_weight="2"
                 android:backgroundTint="@color/colorBlack"
                 android:ems="10"
+                android:hint="ex. 180 (lbs)"
                 android:inputType="numberDecimal"
-                android:hint="ex. 180 (lbs)"/>
+                android:maxLength="5" />
 
         </TableRow>
 
@@ -154,14 +221,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:background="@color/colorSecondary"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:id="@+id/goalWeightLabel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:fontFamily="@font/coda"
                 android:gravity="center"
                 android:text="@string/goal_weight_label"
@@ -177,47 +242,76 @@
                 android:layout_weight="2"
                 android:backgroundTint="@color/colorBlack"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="ex. 170 (lbs)"/>
+                android:hint="ex. 170 (lbs)"
+                android:inputType="numberDecimal"
+                android:maxLength="5" />
 
         </TableRow>
 
-            <LinearLayout
-                android:layout_height="wrap_content"
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/heightFeetLabel"
                 android:layout_width="match_parent"
-                android:background="@color/colorSecondary"
-                android:orientation="horizontal"
-                android:padding="8dp"
-                android:layout_margin="8dp">
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:text="@string/height_in_feet_label"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:typeface="serif" />
 
-                <TextView
-                    android:id="@+id/heightLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/coda"
-                    android:text="@string/height_label"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="24sp"
-                    android:typeface="serif"
-                    android:layout_weight="1"/>
+            <EditText
+                android:id="@+id/heightFeet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorBlack"
+                android:digits="123456789"
+                android:focusedByDefault="false"
+                android:hint="ex. 5"
+                android:inputType="number"
+                android:maxLength="1" />
 
-                <Spinner
-                    android:id="@+id/heightFeet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:dropDownWidth="match_parent"
-                    android:gravity="center" />
 
-                <Spinner
-                    android:id="@+id/heightInches"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:dropDownWidth="match_parent" />
+        </TableRow>
 
-            </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/heightInchesLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:maxLines="1"
+                android:text="@string/height_in_inches_label"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/heightInches"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:backgroundTint="@color/colorBlack"
+                android:focusedByDefault="false"
+                android:hint="ex. 9"
+                android:inputType="number"
+                android:maxLength="2" />
+
+
+        </TableRow>
+
 
         <Button
             android:id="@+id/submitProfileButton"

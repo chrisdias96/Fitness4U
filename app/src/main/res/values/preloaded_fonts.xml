@@ -2,6 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/coda</item>
-        <item>@font/roboto_medium</item>
     </array>
 </resources>

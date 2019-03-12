@@ -1,0 +1,83 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="fName"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_profile_fName" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="lName"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_profile_lName" />
+
+    <ListPreference
+        android:capitalize="words"
+        android:key="gender"
+        android:entries="@array/pref_gender_list"
+        android:entryValues="@array/pref_gender_list"
+        android:title="@string/pref_profile_gender" />
+
+    <EditTextPreference
+        android:inputType="number"
+        android:key="age"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:maxLength="2"
+        android:title="@string/pref_profile_age" />
+
+    <EditTextPreference
+        android:inputType="numberDecimal"
+        android:key="weight"
+        android:maxLines="1"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_profile_weight" />
+
+    <EditTextPreference
+        android:inputType="numberDecimal"
+        android:key="goalWeight"
+        android:maxLines="1"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_profile_goal_weight" />
+
+    <EditTextPreference
+        android:inputType="number"
+        android:key="heightFeet"
+        android:maxLines="1"
+        android:digits="123456789"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/height_in_feet_label" />
+    <EditTextPreference
+        android:inputType="number"
+        android:key="heightInches"
+        android:maxLines="1"
+        android:maxLength="2"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/height_in_inches_label" />
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+
+
+</PreferenceScreen>
