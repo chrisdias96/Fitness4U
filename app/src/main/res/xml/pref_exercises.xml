@@ -2,9 +2,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
+        android:title="@string/pref_exercise_jumping_jacks_title"
         android:defaultValue="true"
         android:key="ex1"
-        android:title="@string/pref_exercise_jumping_jacks_title" />
+         />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_plank_title"

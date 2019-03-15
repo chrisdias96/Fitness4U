@@ -8,7 +8,9 @@
     <color name="colorSecondaryDark">#cbba83</color>
     <color name="colorSecondaryLight">#ffffe5</color>
 
-    <color name="transparentBlack">#80000000</color>
+    <color name="transparentBlack">#70000000</color>
+    <color name="transparentWhite">#E5E5E5</color>
+    <color name="invisible">#00FFFFFF</color>
 
     <color name="colorWhite">#fafafa</color>
     <color name="colorBlack">#000000</color>
