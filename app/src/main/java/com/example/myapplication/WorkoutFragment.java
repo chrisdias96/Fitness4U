@@ -106,8 +106,6 @@ public class WorkoutFragment extends Fragment {
         PreferenceManager.setDefaultValues(getContext(), R.xml.pref_exercises, false);
         sf = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        workoutButton = view.findViewById(R.id.workoutButton);
-
         /**
          * Here goes the ViewPager
          */
@@ -123,8 +121,6 @@ public class WorkoutFragment extends Fragment {
         graphViewPager.setAdapter(graphAdapter);
 
         workoutViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        //graphViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-
 
         ImageButton rightButton = view.findViewById(R.id.rightButton);
         rightButton.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +157,46 @@ public class WorkoutFragment extends Fragment {
                 else{
                     workoutViewPager.setCurrentItem(workoutAdapter.getCount());
                     graphViewPager.setCurrentItem(graphAdapter.getCount());
+                }
+            }
+        });
+
+        workoutButton = view.findViewById(R.id.workoutButton);
+
+        workoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int location = workoutViewPager.getCurrentItem();
+
+                //Ask why shared preferences dont work
+                //Ask about back button not working
+                if (sf.getBoolean("ex1", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex2", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex3", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex4", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex5", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex6", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex7", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex8", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex9", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex10", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex11", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex12", false)) {
+                    System.out.println("this is page " + location);
+                } else if (sf.getBoolean("ex13", false)) {
+                    System.out.println("this is page " + location);
                 }
             }
         });
