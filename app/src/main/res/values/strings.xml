@@ -178,7 +178,15 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="warmup_exercise_title">Stretch/Jog</string>
+    <string name="warmup_timer">60</string>
+    <string name="exercise_title_jumpingjacks">Jumping Jacks</string>
+    <string name="exercise_title_plank">Plank for 20 seconds</string>
+    <string name="exercise_title_lunges">Lunges</string>
+    <string name="exercise_title_pushups">Pushups</string>
+    <string name="plank_timer">20</string>
+    <string name="shareIntentText">Hey, I just performed a workout on Fitness4You! I\'m one step ahead of you! /n Join me on a journey to fitness!</string>
+    <string name="shareIntentSubject">One step ahead of you!</string>
 
 
 </resources>

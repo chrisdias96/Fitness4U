@@ -39,19 +39,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     public static final String COLUMN_JUMPINGJACK = "jumpingJack"; //exercise
     public static final String COLUMN_PLANK = "plank"; //exercise
-    public static final String COLUMN_BURPEE = "burpee"; //exercise
     public static final String COLUMN_LUNGE = "lunge"; //exercise
     public static final String COLUMN_PUSHUP = "pushup"; //exercise
     public static final String COLUMN_SITUP = "situp"; //exercise
     public static final String COLUMN_HIGHKNEE = "highKnee"; //exercise
-    public static final String COLUMN_WALLSIT = "wallSit"; //exercise
     public static final String COLUMN_SIDEPLANK = "sidePlank"; //exercise
     public static final String COLUMN_TRICEPDIP = "tricepDip"; //exercise
-    public static final String COLUMN_LEGLIFT = "legLift"; //exercise
-    public static final String COLUMN_RUSSIANTWIST = "russianTwist"; //exercise
     public static final String COLUMN_SQUAT = "squat"; //exercise
 
-    public static final String COLUMN_COMPLETE = "complete"; //how many workouts completed
     public static final String COLUMN_DATE = "date"; //date completed the workout
 
     /**
@@ -71,21 +66,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String CREATE_WORKOUT_TABLE = "CREATE TABLE " +
             TABLE_WORKOUTS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY,"
-            + COLUMN_JUMPINGJACK + " INTEGER,"
-            + COLUMN_PLANK + " INTEGER,"
-            + COLUMN_BURPEE + " INTEGER,"
-            + COLUMN_LUNGE + " INTEGER,"
-            + COLUMN_PUSHUP + " INTEGER,"
-            + COLUMN_SITUP + " INTEGER,"
-            + COLUMN_HIGHKNEE + " INTEGER,"
-            + COLUMN_WALLSIT + " INTEGER,"
-            + COLUMN_SIDEPLANK + " INTEGER,"
-            + COLUMN_TRICEPDIP + " INTEGER,"
-            + COLUMN_LEGLIFT + " INTEGER,"
-            + COLUMN_RUSSIANTWIST + " INTEGER,"
-            + COLUMN_SQUAT + " INTEGER,"
+            + COLUMN_JUMPINGJACK + " TEXT,"
+            + COLUMN_PLANK + " TEXT,"
+            + COLUMN_LUNGE + " TEXT,"
+            + COLUMN_PUSHUP + " TEXT,"
+            + COLUMN_SITUP + " TEXT,"
+            + COLUMN_HIGHKNEE + " TEXT,"
+            + COLUMN_SIDEPLANK + " TEXT,"
+            + COLUMN_TRICEPDIP + " TEXT,"
+            + COLUMN_SQUAT + " TEXT,"
 
-            + COLUMN_COMPLETE + " INTEGER,"
             + COLUMN_DATE + " TEXT)";
 
     public DatabaseHandler(Context context) {
@@ -110,20 +100,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_JUMPINGJACK, workout.getJumpingJack());
         values.put(COLUMN_PLANK, workout.getPlank());
-        values.put(COLUMN_BURPEE, workout.getBurpee());
         values.put(COLUMN_LUNGE, workout.getLunge());
         values.put(COLUMN_PUSHUP, workout.getPushup());
         values.put(COLUMN_SITUP, workout.getSitup());
         values.put(COLUMN_HIGHKNEE, workout.getHighKnee());
-        values.put(COLUMN_WALLSIT, workout.getWallSit());
         values.put(COLUMN_SIDEPLANK, workout.getSidePlank());
         values.put(COLUMN_TRICEPDIP, workout.getTricepDip());
-        values.put(COLUMN_LEGLIFT, workout.getLegLift());
-        values.put(COLUMN_RUSSIANTWIST, workout.getRussianTwist());
         values.put(COLUMN_SQUAT, workout.getSquat());
 
-        values.put(COLUMN_COMPLETE, workout.getComplete());
         values.put(COLUMN_DATE, workout.getDate());
+
         db.insert(TABLE_WORKOUTS, null, values);
         db.close();
     }
@@ -139,18 +125,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[]{COLUMN_ID,
                         COLUMN_JUMPINGJACK,
                         COLUMN_PLANK,
-                        COLUMN_BURPEE,
                         COLUMN_LUNGE,
                         COLUMN_PUSHUP,
                         COLUMN_SITUP,
                         COLUMN_HIGHKNEE,
-                        COLUMN_WALLSIT,
                         COLUMN_SIDEPLANK,
                         COLUMN_TRICEPDIP,
-                        COLUMN_LEGLIFT,
-                        COLUMN_RUSSIANTWIST,
                         COLUMN_SQUAT,
-                        COLUMN_COMPLETE,
                         COLUMN_DATE},
                 COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)},
@@ -160,21 +141,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
             workout = new Workout(
                     Integer.parseInt(cursor.getString(0)),
-                    Integer.parseInt(cursor.getString(1)),
-                    Integer.parseInt(cursor.getString(2)),
-                    Integer.parseInt(cursor.getString(3)),
-                    Integer.parseInt(cursor.getString(4)),
-                    Integer.parseInt(cursor.getString(5)),
-                    Integer.parseInt(cursor.getString(6)),
-                    Integer.parseInt(cursor.getString(7)),
-                    Integer.parseInt(cursor.getString(8)),
-                    Integer.parseInt(cursor.getString(9)),
-                    Integer.parseInt(cursor.getString(10)),
-                    Integer.parseInt(cursor.getString(11)),
-                    Integer.parseInt(cursor.getString(12)),
-                    Integer.parseInt(cursor.getString(13)),
-                    Integer.parseInt(cursor.getString(14)),
-                    cursor.getString(15)
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getString(8),
+                    cursor.getString(9),
+                    cursor.getString(10)
             );
         }
         db.close();
@@ -193,21 +169,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             do{
                 workoutList.add(new Workout(
                         Integer.parseInt(cursor.getString(0)),
-                        Integer.parseInt(cursor.getString(1)),
-                        Integer.parseInt(cursor.getString(2)),
-                        Integer.parseInt(cursor.getString(3)),
-                        Integer.parseInt(cursor.getString(4)),
-                        Integer.parseInt(cursor.getString(5)),
-                        Integer.parseInt(cursor.getString(6)),
-                        Integer.parseInt(cursor.getString(7)),
-                        Integer.parseInt(cursor.getString(8)),
-                        Integer.parseInt(cursor.getString(9)),
-                        Integer.parseInt(cursor.getString(10)),
-                        Integer.parseInt(cursor.getString(11)),
-                        Integer.parseInt(cursor.getString(12)),
-                        Integer.parseInt(cursor.getString(13)),
-                        Integer.parseInt(cursor.getString(14)),
-                        cursor.getString(15)
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
                 ));
             }while(cursor.moveToNext());
         }
@@ -223,19 +194,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_JUMPINGJACK, workout.getJumpingJack());
         values.put(COLUMN_PLANK, workout.getPlank());
-        values.put(COLUMN_BURPEE, workout.getBurpee());
         values.put(COLUMN_LUNGE, workout.getLunge());
         values.put(COLUMN_PUSHUP, workout.getPushup());
         values.put(COLUMN_SITUP, workout.getSitup());
         values.put(COLUMN_HIGHKNEE, workout.getHighKnee());
-        values.put(COLUMN_WALLSIT, workout.getWallSit());
         values.put(COLUMN_SIDEPLANK, workout.getSidePlank());
         values.put(COLUMN_TRICEPDIP, workout.getTricepDip());
-        values.put(COLUMN_LEGLIFT, workout.getLegLift());
-        values.put(COLUMN_RUSSIANTWIST, workout.getRussianTwist());
         values.put(COLUMN_SQUAT, workout.getSquat());
 
-        values.put(COLUMN_COMPLETE, workout.getComplete());
         values.put(COLUMN_DATE, workout.getDate());
         return db.update(TABLE_WORKOUTS, values, COLUMN_ID + "=?",
                 new String[]{String.valueOf(workout.getId())});
