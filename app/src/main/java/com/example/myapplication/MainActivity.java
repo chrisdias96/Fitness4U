@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.myapplication.Workouts.w1d1Fragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
                     MainFragment.OnFragmentInteractionListener,
@@ -24,7 +26,9 @@ public class MainActivity extends AppCompatActivity
                     WorkoutFragment.OnFragmentInteractionListener,
                     WorkoutChooserFragment.OnFragmentInteractionListener,
                     GraphChooserFragment.OnFragmentInteractionListener,
+                    w1d1Fragment.OnFragmentInteractionListener,
                     HistoryFragment.OnFragmentInteractionListener,
+                    UpdateWorkoutFragment.OnFragmentInteractionListener,
                     TipFragment.OnFragmentInteractionListener {
 
     public static FloatingActionButton fab;
