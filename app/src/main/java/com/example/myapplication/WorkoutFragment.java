@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,6 +25,7 @@ import com.eftimoff.viewpagertransformers.BaseTransformer;
 import com.eftimoff.viewpagertransformers.StackTransformer;
 import com.eftimoff.viewpagertransformers.ZoomInTransformer;
 import com.eftimoff.viewpagertransformers.ZoomOutTranformer;
+import com.example.myapplication.JavaBean.Workout;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -52,16 +55,11 @@ public class WorkoutFragment extends Fragment {
     private String mParam2;
 
     private SharedPreferences sf;
-    private String SHARED_PREF;
 
-    BarChart chart;
-    ArrayList<BarEntry> entries;
-    ArrayList<String> xAxisLabel;
-    BarDataSet barDataSet;
-    BarData data;
 
     ImageButton workoutButton;
 
+    FragmentManager fm;
 
     private OnFragmentInteractionListener mListener;
 
@@ -106,6 +104,8 @@ public class WorkoutFragment extends Fragment {
         PreferenceManager.setDefaultValues(getContext(), R.xml.pref_exercises, false);
         sf = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        fm = getActivity().getSupportFragmentManager();
+
         /**
          * Here goes the ViewPager
          */
@@ -115,12 +115,15 @@ public class WorkoutFragment extends Fragment {
         final ViewPager graphViewPager = view.findViewById(R.id.graphViewPager);
         graphViewPager.setEnabled(false);
 
-        final WorkoutViewPagerAdapter workoutAdapter = new WorkoutViewPagerAdapter(getFragmentManager());
-        final GraphViewPagerAdapter graphAdapter = new GraphViewPagerAdapter(getFragmentManager());
+        final WorkoutViewPagerAdapter workoutAdapter = new WorkoutViewPagerAdapter(getChildFragmentManager());
+        final GraphViewPagerAdapter graphAdapter = new GraphViewPagerAdapter(getChildFragmentManager());
         workoutViewPager.setAdapter(workoutAdapter);
         graphViewPager.setAdapter(graphAdapter);
 
         workoutViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+
+        workoutViewPager.setCurrentItem(0);
+        graphViewPager.setCurrentItem(0);
 
         ImageButton rightButton = view.findViewById(R.id.rightButton);
         rightButton.setOnClickListener(new View.OnClickListener() {
@@ -169,35 +172,12 @@ public class WorkoutFragment extends Fragment {
 
                 int location = workoutViewPager.getCurrentItem();
 
-                //Ask why shared preferences dont work
-                //Ask about back button not working
-                if (sf.getBoolean("ex1", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex2", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex3", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex4", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex5", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex6", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex7", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex8", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex9", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex10", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex11", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex12", false)) {
-                    System.out.println("this is page " + location);
-                } else if (sf.getBoolean("ex13", false)) {
-                    System.out.println("this is page " + location);
-                }
+                Intent intent = new Intent(getActivity(), WorkoutActivity.class);
+
+                intent.putExtra("locationOfViewPager", location);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
             }
         });
 
@@ -216,7 +196,7 @@ public class WorkoutFragment extends Fragment {
                     // image of workout unchecked or checked, followed by workout week/day
                     return WorkoutChooserFragment.newInstance(R.raw.buttonunchecked, "W1/D1");
                 case 1:
-                    return WorkoutChooserFragment.newInstance(R.raw.buttonchecked, "W1/D2");
+                    return WorkoutChooserFragment.newInstance(R.raw.buttonunchecked, "W1/D2");
                 case 2:
                     return WorkoutChooserFragment.newInstance(R.raw.buttonunchecked, "W1/D3");
                 case 3:
@@ -340,57 +320,6 @@ public class WorkoutFragment extends Fragment {
     }
 
 
-//
-//    /**
-//     * TO DO: FIX SAVED PREFERENCES
-//     */
-//    public void refreshChart() {
-//
-//        if (sf.getBoolean("ex1", false)) {
-//            entries.add(new BarEntry(10f, 0)); // Jumping Jacks
-//            xAxisLabel.add("Jumping Jacks");
-//        } else if (sf.getBoolean("ex2", true)) {
-//            entries.add(new BarEntry(12f, 1)); // Plank
-//            xAxisLabel.add("Plank");
-//        } else if (sf.getBoolean("ex3", false)) {
-//            entries.add(new BarEntry(13f, 2)); // Burpees
-//            xAxisLabel.add("Burpees");
-//        } else if (sf.getBoolean("ex4", false)) {
-//            entries.add(new BarEntry(14f, 3)); // Lunges
-//            xAxisLabel.add("Lunges");
-//        } else if (sf.getBoolean("ex5", false)) {
-//            entries.add(new BarEntry(15f, 4)); // Push ups
-//            xAxisLabel.add("Push ups");
-//        } else if (sf.getBoolean("ex6", false)) {
-//            entries.add(new BarEntry(16f, 5)); // Sit ups
-//            xAxisLabel.add("Sit ups");
-//        } else if (sf.getBoolean("ex7", false)) {
-//            entries.add(new BarEntry(17f, 6)); // High knees
-//            xAxisLabel.add("High knees");
-//        } else if (sf.getBoolean("ex8", false)) {
-//            entries.add(new BarEntry(18, 7)); // Wall Sit
-//            xAxisLabel.add("Wall sit");
-//        } else if (sf.getBoolean("ex9", false)) {
-//            entries.add(new BarEntry(19, 8)); // Side Plank
-//            xAxisLabel.add("Side Plank");
-//        } else if (sf.getBoolean("ex10", false)) {
-//            entries.add(new BarEntry(25, 9)); // Tricep Dip
-//            xAxisLabel.add("Tricep Dip");
-//        } else if (sf.getBoolean("ex11", false)) {
-//            entries.add(new BarEntry(26, 10)); // Leg lift
-//            xAxisLabel.add("Leg lift");
-//        } else if (sf.getBoolean("ex12", false)) {
-//            entries.add(new BarEntry(27, 11)); // Russian twists
-//            xAxisLabel.add("Russian Twists");
-//        } else if (sf.getBoolean("ex13", false)) {
-//            entries.add(new BarEntry(29, 12)); // Squats
-//            xAxisLabel.add("Squats");
-//        }
-//
-//        chart.animateXY(2000, 2000);
-//        chart.invalidate();
-//
-//    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

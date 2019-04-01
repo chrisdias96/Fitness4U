@@ -17,11 +17,10 @@ public class WelcomeActivity extends AppCompatActivity
         WelcomeScreenFragment.OnFragmentInteractionListener,
         WorkoutFragment.OnFragmentInteractionListener,
         HistoryFragment.OnFragmentInteractionListener,
+        UpdateWorkoutFragment.OnFragmentInteractionListener,
         TipFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
-
-    String profileState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

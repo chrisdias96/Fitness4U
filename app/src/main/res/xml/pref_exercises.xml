@@ -13,58 +13,38 @@
         android:key="ex2" />
 
     <CheckBoxPreference
-        android:title="@string/pref_exercise_burpees_title"
-        android:defaultValue="true"
-        android:key="act3" />
-
-    <CheckBoxPreference
         android:title="@string/pref_exercise_lunges_title"
         android:defaultValue="true"
-        android:key="ex4" />
+        android:key="ex3" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_pushups_title"
         android:defaultValue="true"
-        android:key="ex5" />
+        android:key="ex4" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_situps_title"
         android:defaultValue="true"
-        android:key="ex6" />
+        android:key="ex5" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_high_knees_title"
         android:defaultValue="true"
-        android:key="ex7" />
-
-    <CheckBoxPreference
-        android:title="@string/pref_exercise_wall_sit_title"
-        android:defaultValue="true"
-        android:key="ex8" />
+        android:key="ex6" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_side_plank_title"
         android:defaultValue="true"
-        android:key="ex9" />
+        android:key="ex7" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_tricep_dips_title"
         android:defaultValue="true"
-        android:key="ex10" />
-
-    <CheckBoxPreference
-        android:title="@string/pref_exercise_leg_lift_title"
-        android:defaultValue="true"
-        android:key="ex11" />
-
-    <CheckBoxPreference
-        android:title="@string/pref_exercise_russian_twist_title"
-        android:defaultValue="true"
-        android:key="ex12" />
+        android:key="ex8" />
 
     <CheckBoxPreference
         android:title="@string/pref_exercise_squats_title"
         android:defaultValue="true"
-        android:key="ex13" />
+        android:key="ex9" />
 
 </PreferenceScreen>
