@@ -1,8 +1,8 @@
-# Fitness4U
+# Fitness4You
 
 
 <p align="center">
-  <img src="screenshots/logo.jpg">
+  <img width="300" height="300" src="screenshots/logo.jpg">
 </p>
 
 Your next step to living a better healthier you!
@@ -17,14 +17,13 @@ Create, read, update, delete and share your workouts with your fellow friends fo
 Calculate your Body Mass Index (BMI)in-app to track your overall health and potential risks.
 
 
-## Getting Started
 
+## Getting Started
 
 Clone or download the project and you're on your way to victory!
 
 
 ## Prerequisites
-
 
 Fitness4You requires that you have a minimum SDK of 24 or higher.
 
@@ -35,7 +34,7 @@ Fitness4You requires that you have a minimum SDK of 24 or higher.
 
 
 <p align="center">
-  <img src="screenshots/welcome.png">
+  <img width="300" height="600" src="screenshots/welcome.png">
 </p>
 
 
@@ -43,7 +42,7 @@ Fitness4You requires that you have a minimum SDK of 24 or higher.
 
 
 <p align="center">
-  <img src="screenshots/mainActivity.png">
+  <img width="300" height="600" src="screenshots/mainActivity.png">
 </p>
 
 
@@ -51,7 +50,7 @@ Fitness4You requires that you have a minimum SDK of 24 or higher.
 
 
 <p align="center">
-  <img src="screenshots/bmi.png">
+  <img width="300" height="600" src="screenshots/bmi.png">
 </p>
 
 
@@ -59,7 +58,7 @@ Fitness4You requires that you have a minimum SDK of 24 or higher.
 
 
 <p align="center">
-  <img src="screenshots/workoutActivity.png">
+  <img width="300" height="600" src="screenshots/workoutActivity.png">
 </p>
 
 
