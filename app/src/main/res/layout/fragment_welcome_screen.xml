@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorSecondary"
     android:orientation="vertical"
-    tools:context=".WelcomeScreenFragment">
+    tools:context=".Fragments.WelcomeScreenFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/coda"
             android:text="@string/welcome_text"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"

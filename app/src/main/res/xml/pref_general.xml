@@ -19,4 +19,11 @@
         android:key="ttsKey"
         android:defaultValue="true" />
 
+    <CheckBoxPreference
+        android:title="Sounds"
+        android:icon="@drawable/ic_volume_down_black_24dp"
+        android:summary="Would you like to hear the sound instructions?"
+        android:key="soundKey"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

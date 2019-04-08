@@ -22,12 +22,11 @@ import android.widget.TextView;
 import com.example.myapplication.Database.DatabaseHandler;
 import com.example.myapplication.JavaBean.DisplayWorkout;
 import com.example.myapplication.JavaBean.Workout;
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.Activities.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.WorkoutActivity;
+import com.example.myapplication.Activities.WorkoutActivity;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -119,6 +118,7 @@ public class w1d1Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_display_workout, container, false);
 
+        //Call the exercise preferences and fins out which exercises the user wants to perform
         PreferenceManager.setDefaultValues(getContext(), R.xml.pref_exercises, false);
         sf = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -131,20 +131,28 @@ public class w1d1Fragment extends Fragment {
 
         exitButton = view.findViewById(R.id.backWorkoutButton);
 
-        WorkoutActivity.mediaPlayer.start();
+        //If the user has the checkbox to listen to sounds, then play the whistle to begin the workout
+        if (sf.getBoolean("soundKey", true)) {
+            WorkoutActivity.mediaPlayer.start();
+        }
         exerciseImage.setImageResource(R.drawable.highknees);
         exerciseTitle.setText(R.string.warmup_exercise_title);
 
+        //StretchTimer is called whenever the workout is starting and ending
+        //Stretches/Cooldowns are 3 minutes long
         stretchTimer = new CountDownTimer(180000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
+                //Every second display the timer ticking down
                 timerCount.setText(String.valueOf(millisUntilFinished / 1000));
             }
 
             @Override
             public void onFinish() {
+                //If the user isn't done stretching, skip this and go back to the onTick
                 if (!isDoneStretching) {
+                    //Stretch is complete, proceed with the workout
                     nextSegmentOfWorkout();
                     WorkoutActivity.mediaPlayer.start();
                     isDoneStretching = true;
@@ -152,20 +160,25 @@ public class w1d1Fragment extends Fragment {
             }
         }.start();
 
+        //PlankTimer is a countdown for when the user is planking
         plankTimer = new CountDownTimer(60000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
+                //Decrease every second
                 timerCount.setText(String.valueOf(millisUntilFinished / 1000));
             }
 
             @Override
             public void onFinish() {
+                //Continue the workout when finished
                 WorkoutActivity.mediaPlayer.start();
                 nextSegmentOfWorkout();
             }
         };
 
+        //When the 'DONE' workout button is clicked,
+        //Cancel any timers and continue the workout
         nextWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +191,7 @@ public class w1d1Fragment extends Fragment {
             }
         });
 
+        //When the exit workout button is clicked
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,171 +231,219 @@ public class w1d1Fragment extends Fragment {
         return view;
     }
 
+    /**
+     * This is called when the user is to perform jumping jacks
+     */
     public void jumpingJacks() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if (sf.getBoolean("ex1", false)) {
             exerciseImage.setImageResource(R.drawable.jumpingjack);
             exerciseTitle.setText(R.string.exercise_title_jumpingjacks);
-            timerCount.setText("15");
-            String text = "Do 15 jumping jacks";
-            WorkoutActivity.ttsManager.initQueue(text);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_jumping_jacks_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneJumpingJacks = true;
-        jumpingJacksCount = "15";
+        jumpingJacksCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void planks() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if (sf.getBoolean("ex2", false)) {
             exerciseImage.setImageResource(R.drawable.plank);
-            exerciseTitle.setText("Plank");
-            String text = "Plank for 60 seconds";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_plank);
+            String text = getResources().getString(R.string.voice_coach_plank_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
 
             plankTimer.start();
         }
 
         isDonePlank = true;
-        plankCount = "15";
+        plankCount = getResources().getString(R.string.plank_count_w1d1);
     }
 
     public void lunges() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex3", false)) {
             exerciseImage.setImageResource(R.drawable.lunges);
             exerciseTitle.setText(R.string.exercise_title_lunges);
-            timerCount.setText("15");
-            String text = "Do 15 lunges for each leg";
-            WorkoutActivity.ttsManager.initQueue(text);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_lunge_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneLunges = true;
-        lungesCount = "15";
+        lungesCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void pushups() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex4", false)) {
             exerciseImage.setImageResource(R.drawable.pushups);
             exerciseTitle.setText(R.string.exercise_title_pushups);
-            timerCount.setText("15");
-            String text = "Do 15 pushups";
-            WorkoutActivity.ttsManager.initQueue(text);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_pushup_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDonePushups = true;
-        pushupsCount = "15";
+        pushupsCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void situps() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex5", false)) {
             exerciseImage.setImageResource(R.drawable.situps);
-            exerciseTitle.setText("Situps");
-            timerCount.setText("15");
-            String text = "Do 15 situps";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_situps);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_situp_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneSitups = true;
-        situpsCount = "15";
+        situpsCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void highKnees() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex6", false)) {
             exerciseImage.setImageResource(R.drawable.highknees);
-            exerciseTitle.setText("High Knees");
-            timerCount.setText("15");
-            String text = "Do 15 high knees for each leg";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_high_knees);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_high_knees_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneHighKnees = true;
-        highKneesCount = "15";
+        highKneesCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void sideplank() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex7", false)) {
             exerciseImage.setImageResource(R.drawable.sideplank);
-            exerciseTitle.setText("Side Plank");
-            timerCount.setText("15");
-            String text = "Do 15 side planks for each side";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_side_plank);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_side_plank_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneSidePlank = true;
-        sidePlankCount = "15";
+        sidePlankCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void tricepDip() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex8", false)) {
             exerciseImage.setImageResource(R.drawable.tripcepdips);
-            exerciseTitle.setText("Tricep Dips");
-            timerCount.setText("15");
-            String text = "Do 15 tricep dips";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_tricepdip);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_tricep_dip_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneTricepDips = true;
-        tricepDipCount = "15";
+        tricepDipCount = getResources().getString(R.string.reps_w1d1);
     }
 
     public void squats() {
 
+        //If the sharedPreferences is set to true, show the workout details on screen
         if(sf.getBoolean("ex9", false)) {
             exerciseImage.setImageResource(R.drawable.squats);
-            exerciseTitle.setText("Squats");
-            timerCount.setText("15");
-            String text = "Do 15 squats";
-            WorkoutActivity.ttsManager.initQueue(text);
+            exerciseTitle.setText(R.string.exercise_title_squats);
+            timerCount.setText(R.string.reps_w1d1);
+            String text = getResources().getString(R.string.voice_coach_squats_w1d1);
+            if (sf.getBoolean("ttsKey", true))
+                WorkoutActivity.ttsManager.initQueue(text);
         }
 
         isDoneSquats = true;
-        squatCount = "15";
+        squatCount = getResources().getString(R.string.reps_w1d1);
     }
 
+    /**
+     * nextSegmentOfWorkout checks to see if the workout has been performed
+     * If it has not, perform the next workout and call their specific exercise method
+     * If it has, continue until all workouts have been completed
+     */
     public void nextSegmentOfWorkout() {
         if (sf.getBoolean("ex1", false) && !isDoneJumpingJacks) {
             jumpingJacks();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex2", false) && !isDonePlank) {
             planks();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex3", false) && !isDoneLunges) {
             lunges();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex4", false) && !isDonePushups) {
             pushups();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex5", false) && !isDoneSitups) {
             situps();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex6", false) && !isDoneHighKnees) {
             highKnees();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex7", false) && !isDoneSidePlank) {
             sideplank();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex8", false) && !isDoneTricepDips) {
             tricepDip();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else if (sf.getBoolean("ex9", false) && !isDoneSquats) {
             squats();
-            WorkoutActivity.mediaPlayer.start();
+            if (sf.getBoolean("soundKey", true)) {
+                WorkoutActivity.mediaPlayer.start();
+            }
         } else {
             if (isDoneWorkout) {
+                //Once all the workouts are completed
 
-                String text = "Done Workout! great job!";
-                WorkoutActivity.ttsManager.initQueue(text);
+                if (sf.getBoolean("ttsKey", true)) {
+                    String text = "Done Workout!";
+                    WorkoutActivity.ttsManager.initQueue(text);
+                }
 
+                //Create a date String thats populated with the date the user completed the workout
                 SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
                 String date = sdf.format(new Date());
 
-                //Add the workout details into the database
+                //Populate the workout details into the database
                 Workout workout = new Workout(jumpingJacksCount,
                         plankCount,
                         lungesCount,
@@ -402,14 +464,19 @@ public class w1d1Fragment extends Fragment {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-            } else {
 
-                WorkoutActivity.mediaPlayer.start();
+            } else {
+                //User has completed the workout but not finished the cooldown
+
+                if (sf.getBoolean("soundKey", true)) {
+                    WorkoutActivity.mediaPlayer.start();
+                }
                 exerciseImage.setImageResource(R.drawable.highknees);
                 exerciseTitle.setText(R.string.warmup_exercise_title);
                 stretchTimer.start();
                 String text = "Cool down for 3 minutes";
-                WorkoutActivity.ttsManager.initQueue(text);
+                if (sf.getBoolean("ttsKey", true))
+                    WorkoutActivity.ttsManager.initQueue(text);
 
                 isDoneWorkout = true;
             }
@@ -444,10 +511,12 @@ public class w1d1Fragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
+        //Cancel all timers and close the ttsManager when the fragment is destroyed
         stretchTimer.cancel();
         plankTimer.cancel();
 
-        WorkoutActivity.ttsManager.shutdown();
+        if (sf.getBoolean("ttsKey", true))
+            WorkoutActivity.ttsManager.shutdown();
     }
 
     /**
