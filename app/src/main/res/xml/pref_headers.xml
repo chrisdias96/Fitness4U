@@ -2,21 +2,26 @@
 
     <!-- These settings headers are only used on tablets. -->
     <header
-        android:fragment="com.example.myapplication.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.example.myapplication.Activities.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/pref_header_general"
         android:summary="@string/pref_header_general_summary"/>
 
     <header
-        android:fragment="com.example.myapplication.SettingsActivity$ProfilePreferenceFragment"
+        android:fragment="com.example.myapplication.Activities.SettingsActivity$ProfilePreferenceFragment"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/pref_header_profile"
         android:summary="@string/pref_header_profile_summary"/>
 
     <header
-        android:fragment="com.example.myapplication.SettingsActivity$ExercisePreferenceFragment"
+        android:fragment="com.example.myapplication.Activities.SettingsActivity$ExercisePreferenceFragment"
         android:icon="@drawable/ic_directions_walk_black_24dp"
         android:title="@string/pref_general_exercise_title"
         android:summary="@string/pref_header_exercises_summary" />
+
+    <header
+        android:fragment="com.example.myapplication.Activities.SettingsActivity$CreditsPreferenceFragment"
+        android:icon="@drawable/ic_credits"
+        android:title="Credits" />
 
 </preference-headers>
