@@ -66,6 +66,7 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="@string/height_in_feet_label" />
+
     <EditTextPreference
         android:inputType="number"
         android:key="heightInches"

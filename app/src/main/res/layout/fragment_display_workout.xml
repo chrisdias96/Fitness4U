@@ -28,46 +28,70 @@
                 android:adjustViewBounds="true"
                 android:background="@color/colorSecondary"
                 android:cropToPadding="true"
-                app:layout_constraintBottom_toTopOf="@+id/exerciseTitle"
+                app:layout_constraintBottom_toTopOf="@+id/stretchExerciseCard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="spread_inside"
                 app:srcCompat="@drawable/highknees" />
 
-            <TextView
-                android:id="@+id/exerciseTitle"
-                android:layout_width="match_parent"
+            <android.support.v7.widget.CardView
+                android:id="@+id/stretchExerciseCard"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/coda"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:text="Stretch/Jog"
-                android:textColor="@color/colorBlack"
-                android:background="@color/colorSecondary"
-                android:textAlignment="center"
-                android:textSize="48sp"
-                app:layout_constraintBottom_toTopOf="@+id/timerText"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                app:cardBackgroundColor="@color/about_libraries_primary"
+                app:cardCornerRadius="50dp"
+                app:contentPadding="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/countCard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseImage" />
+                app:layout_constraintTop_toBottomOf="@+id/exerciseImage">
 
-            <TextView
-                android:id="@+id/timerText"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/exerciseTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/coda"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="Stretch/Jog"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="48sp" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/countCard"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/coda"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:text="60"
-                android:background="@color/colorSecondary"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="80sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                app:cardBackgroundColor="@color/about_libraries_primary"
+                app:cardCornerRadius="60dp"
+                app:contentPaddingLeft="32dp"
+                app:contentPaddingRight="32dp"
                 app:layout_constraintBottom_toTopOf="@+id/nextExerciseButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/stretchExerciseCard">
+
+                <TextView
+                    android:id="@+id/timerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/coda"
+                    android:text="60"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="80sp" />
+
+            </android.support.v7.widget.CardView>
+
 
             <Button
                 android:id="@+id/nextExerciseButton"
@@ -75,6 +99,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/rounded_button"
@@ -85,12 +110,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/timerText" />
+                app:layout_constraintTop_toBottomOf="@+id/countCard" />
 
             <ImageView
                 android:id="@+id/backWorkoutButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_gravity="left|bottom"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"

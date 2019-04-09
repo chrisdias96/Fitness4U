@@ -31,6 +31,7 @@
         <item>11</item>
     </string-array>
 
+    <!-- Labels for the WelcomeScreenActivity and Fragment -->
     <string name="first_name_label">First Name:</string>
     <string name="last_name_label">Last Name:</string>
     <string name="gender_label">Gender:</string>
@@ -52,8 +53,176 @@
     </string-array>
 
 
-    <!-- Strings related to xml folder -->
+    <!-- Exercises -->
+    <string name="exercise_title_jumpingjacks">Jumping Jacks</string>
+    <string name="exercise_title_plank">Plank</string>
+    <string name="exercise_title_lunges">Lunges</string>
+    <string name="exercise_title_pushups">Pushups</string>
+    <string name="exercise_title_situps">Situps</string>
+    <string name="exercise_title_high_knees">High Knees</string>
+    <string name="exercise_title_side_plank">Side Plank</string>
+    <string name="exercise_title_tricepdip">Tricep Dips</string>
+    <string name="exercise_title_squats">Squats</string>
+    <string name="warmup_exercise_title">Stretch/Jog</string>
 
+    <!-- Plank Timers -->
+    <integer name="plank_timer_w1d1">60</integer>
+    <integer name="plank_timer_w1d2">70000</integer>
+    <integer name="plank_timer_w1d3">80000</integer>
+    <integer name="plank_timer_w2d1">90000</integer>
+    <integer name="plank_timer_w2d2">100000</integer>
+    <integer name="plank_timer_w2d3">110000</integer>
+    <integer name="plank_timer_w3d1">120000</integer>
+    <integer name="plank_timer_w3d2">130000</integer>
+    <integer name="plank_timer_w3d3">140000</integer>
+    <integer name="plank_timer_w4d1">150000</integer>
+    <integer name="plank_timer_w4d2">160000</integer>
+    <integer name="plank_timer_w4d3">180000</integer>
+
+    <string name="plank_count_w1d1">60</string>
+    <string name="plank_count_w1d2">70</string>
+    <string name="plank_count_w1d3">80</string>
+    <string name="plank_count_w2d1">90</string>
+    <string name="plank_count_w2d2">100</string>
+    <string name="plank_count_w2d3">110</string>
+    <string name="plank_count_w3d1">120</string>
+    <string name="plank_count_w3d2">130</string>
+    <string name="plank_count_w3d3">140</string>
+    <string name="plank_count_w4d1">150</string>
+    <string name="plank_count_w4d2">160</string>
+    <string name="plank_count_w4d3">180</string>
+
+    <!-- Amount of reps to do for each exercise -->
+    <string name="reps_w1d1">15</string>
+    <string name="reps_w1d2">18</string>
+    <string name="reps_w1d3">21</string>
+    <string name="reps_w2d1">25</string>
+    <string name="reps_w2d2">28</string>
+    <string name="reps_w2d3">30</string>
+    <string name="reps_w3d1">33</string>
+    <string name="reps_w3d2">35</string>
+    <string name="reps_w3d3">38</string>
+    <string name="reps_w4d1">42</string>
+    <string name="reps_w4d2">45</string>
+    <string name="reps_w4d3">50</string>
+
+    <!-- Voice Coach Text -->
+    <string name="voice_coach_jumping_jacks_w1d1">Do 15 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w1d2">Do 18 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w1d3">Do 21 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w2d1">Do 25 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w2d2">Do 28 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w2d3">Do 30 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w3d1">Do 33 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w3d2">Do 35 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w3d3">Do 38 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w4d1">Do 42 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w4d2">Do 45 Jumping Jacks</string>
+    <string name="voice_coach_jumping_jacks_w4d3">Do 50 Jumping Jacks</string>
+
+    <string name="voice_coach_plank_w1d1">Plank for 60 seconds</string>
+    <string name="voice_coach_plank_w1d2">Plank for 70 seconds</string>
+    <string name="voice_coach_plank_w1d3">Plank for 80 seconds</string>
+    <string name="voice_coach_plank_w2d1">Plank for 90 seconds</string>
+    <string name="voice_coach_plank_w2d2">Plank for 100 seconds</string>
+    <string name="voice_coach_plank_w2d3">Plank for 100 seconds</string>
+    <string name="voice_coach_plank_w3d1">Plank for 120 seconds</string>
+    <string name="voice_coach_plank_w3d2">Plank for 130 seconds</string>
+    <string name="voice_coach_plank_w3d3">Plank for 140 seconds</string>
+    <string name="voice_coach_plank_w4d1">Plank for 150 seconds</string>
+    <string name="voice_coach_plank_w4d2">Plank for 160 seconds</string>
+    <string name="voice_coach_plank_w4d3">Plank for 180 seconds</string>
+
+    <string name="voice_coach_lunge_w1d1">Do 15 lunges for each leg</string>
+    <string name="voice_coach_lunge_w1d2">Do 18 lunges for each leg</string>
+    <string name="voice_coach_lunge_w1d3">Do 21 lunges for each leg</string>
+    <string name="voice_coach_lunge_w2d1">Do 25 lunges for each leg</string>
+    <string name="voice_coach_lunge_w2d2">Do 28 lunges for each leg</string>
+    <string name="voice_coach_lunge_w2d3">Do 30 lunges for each leg</string>
+    <string name="voice_coach_lunge_w3d1">Do 33 lunges for each leg</string>
+    <string name="voice_coach_lunge_w3d2">Do 35 lunges for each leg</string>
+    <string name="voice_coach_lunge_w3d3">Do 38 lunges for each leg</string>
+    <string name="voice_coach_lunge_w4d1">Do 42 lunges for each leg</string>
+    <string name="voice_coach_lunge_w4d2">Do 45 lunges for each leg</string>
+    <string name="voice_coach_lunge_w4d3">Do 50 lunges for each leg</string>
+
+    <string name="voice_coach_pushup_w1d1">Do 15 pushups</string>
+    <string name="voice_coach_pushup_w1d2">Do 18 pushups</string>
+    <string name="voice_coach_pushup_w1d3">Do 21 pushups</string>
+    <string name="voice_coach_pushup_w2d1">Do 25 pushups</string>
+    <string name="voice_coach_pushup_w2d2">Do 28 pushups</string>
+    <string name="voice_coach_pushup_w2d3">Do 30 pushups</string>
+    <string name="voice_coach_pushup_w3d1">Do 33 pushups</string>
+    <string name="voice_coach_pushup_w3d2">Do 35 pushups</string>
+    <string name="voice_coach_pushup_w3d3">Do 38 pushups</string>
+    <string name="voice_coach_pushup_w4d1">Do 42 pushups</string>
+    <string name="voice_coach_pushup_w4d2">Do 45 pushups</string>
+    <string name="voice_coach_pushup_w4d3">Do 50 pushups</string>
+
+    <string name="voice_coach_situp_w1d1">Do 15 situps</string>
+    <string name="voice_coach_situp_w1d2">Do 18 situps</string>
+    <string name="voice_coach_situp_w1d3">Do 21 situps</string>
+    <string name="voice_coach_situp_w2d1">Do 25 situps</string>
+    <string name="voice_coach_situp_w2d2">Do 28 situps</string>
+    <string name="voice_coach_situp_w2d3">Do 30 situps</string>
+    <string name="voice_coach_situp_w3d1">Do 33 situps</string>
+    <string name="voice_coach_situp_w3d2">Do 35 situps</string>
+    <string name="voice_coach_situp_w3d3">Do 38 situps</string>
+    <string name="voice_coach_situp_w4d1">Do 42 situps</string>
+    <string name="voice_coach_situp_w4d2">Do 45 situps</string>
+    <string name="voice_coach_situp_w4d3">Do 50 situps</string>
+
+    <string name="voice_coach_high_knees_w1d1">Do 15 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w1d2">Do 18 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w1d3">Do 21 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w2d1">Do 25 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w2d2">Do 28 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w2d3">Do 30 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w3d1">Do 33 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w3d2">Do 35 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w3d3">Do 38 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w4d1">Do 42 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w4d2">Do 45 high knees for each leg</string>
+    <string name="voice_coach_high_knees_w4d3">Do 50 high knees for each leg</string>
+
+    <string name="voice_coach_side_plank_w1d1">Do 15 side planks for each side</string>
+    <string name="voice_coach_side_plank_w1d2">Do 18 side planks for each side</string>
+    <string name="voice_coach_side_plank_w1d3">Do 21 side planks for each side</string>
+    <string name="voice_coach_side_plank_w2d1">Do 25 side planks for each side</string>
+    <string name="voice_coach_side_plank_w2d2">Do 28 side planks for each side</string>
+    <string name="voice_coach_side_plank_w2d3">Do 30 side planks for each side</string>
+    <string name="voice_coach_side_plank_w3d1">Do 33 side planks for each side</string>
+    <string name="voice_coach_side_plank_w3d2">Do 35 side planks for each side</string>
+    <string name="voice_coach_side_plank_w3d3">Do 38 side planks for each side</string>
+    <string name="voice_coach_side_plank_w4d1">Do 42 side planks for each side</string>
+    <string name="voice_coach_side_plank_w4d2">Do 45 side planks for each side</string>
+    <string name="voice_coach_side_plank_w4d3">Do 50 side planks for each side</string>
+
+    <string name="voice_coach_tricep_dip_w1d1">Do 15 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w1d2">Do 18 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w1d3">Do 21 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w2d1">Do 25 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w2d2">Do 28 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w2d3">Do 30 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w3d1">Do 33 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w3d2">Do 35 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w3d3">Do 38 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w4d1">Do 42 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w4d2">Do 45 tricep dips</string>
+    <string name="voice_coach_tricep_dip_w4d3">Do 50 tricep dips</string>
+
+    <string name="voice_coach_squats_w1d1">Do 15 squats</string>
+    <string name="voice_coach_squats_w1d2">Do 18 squats</string>
+    <string name="voice_coach_squats_w1d3">Do 21 squats</string>
+    <string name="voice_coach_squats_w2d1">Do 25 squats</string>
+    <string name="voice_coach_squats_w2d2">Do 28 squats</string>
+    <string name="voice_coach_squats_w2d3">Do 30 squats</string>
+    <string name="voice_coach_squats_w3d1">Do 33 squats</string>
+    <string name="voice_coach_squats_w3d2">Do 35 squats</string>
+    <string name="voice_coach_squats_w3d3">Do 38 squats</string>
+    <string name="voice_coach_squats_w4d1">Do 42 squats</string>
+    <string name="voice_coach_squats_w4d2">Do 45 squats</string>
+    <string name="voice_coach_squats_w4d3">Do 50 squats</string>
 
     <!--
     pref_headers.xml
@@ -178,15 +347,11 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="warmup_exercise_title">Stretch/Jog</string>
-    <string name="warmup_timer">60</string>
-    <string name="exercise_title_jumpingjacks">Jumping Jacks</string>
-    <string name="exercise_title_plank">Plank for 20 seconds</string>
-    <string name="exercise_title_lunges">Lunges</string>
-    <string name="exercise_title_pushups">Pushups</string>
-    <string name="plank_timer">20</string>
+
+
     <string name="shareIntentText">Hey, I just performed a workout on Fitness4You! I\'m one step ahead of you! /n Join me on a journey to fitness!</string>
     <string name="shareIntentSubject">One step ahead of you!</string>
+    <string name="bmi_warning_message">Note: BMI does not take into consideration fat or muscle. Just because your BMI may be high does not mean your health is at risk. Seek a medical professional for advice.</string>
 
 
 </resources>

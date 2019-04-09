@@ -14,4 +14,8 @@
 
     <color name="colorWhite">#fafafa</color>
     <color name="colorBlack">#000000</color>
+
+    <!-- AboutLibraries DEFAULT colors -->
+    <color name="about_libraries_card">@color/colorSecondary</color>
+
 </resources>

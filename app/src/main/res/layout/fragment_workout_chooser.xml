@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
-    tools:context=".WorkoutChooserFragment">
+    tools:context=".Fragments.WorkoutChooserFragment">
 
     <View
         android:id="@+id/leftDivider"

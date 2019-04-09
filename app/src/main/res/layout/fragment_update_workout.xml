@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorSecondary"
     android:orientation="vertical"
-    tools:context=".UpdateWorkoutFragment">
+    tools:context=".Fragments.UpdateWorkoutFragment">
 
     <TableLayout
         android:layout_width="match_parent"
