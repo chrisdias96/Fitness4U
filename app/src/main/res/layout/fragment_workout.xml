@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorSecondary"
-    tools:context=".WorkoutFragment">
+    tools:context=".Fragments.WorkoutFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -31,7 +31,7 @@
             android:cropToPadding="false"
             android:src="@raw/stretchstart" />
 
-        <com.example.myapplication.NonSwipeableViewPager
+        <com.example.myapplication.Helpers.NonSwipeableViewPager
             android:id="@+id/graphViewPager"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <com.example.myapplication.NonSwipeableViewPager
+    <com.example.myapplication.Helpers.NonSwipeableViewPager
         android:id="@+id/workoutViewPager"
         android:layout_width="0dp"
         android:layout_height="150dp"

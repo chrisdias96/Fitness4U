@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcomeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    android:orientation="vertical"
+    tools:context=".Fragments.UpdateWorkoutFragment">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/jumpingJacksLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/exercise_title_jumpingjacks"
+                android:textAlignment="center"
+                android:layout_weight="2"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:typeface="serif"
+                android:paddingRight="16dp"/>
+
+            <EditText
+                android:id="@+id/jumpingJacksEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/plankLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:text="@string/pref_exercise_plank_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/plankEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="4"
+                android:hint="Time in seconds"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/lungesLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/pref_exercise_lunges_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/lungesEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/pushupsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/pref_exercise_pushups_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/pushupsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/situpsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:gravity="center"
+                android:text="@string/pref_exercise_situps_title"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/situpsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/highKneesLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:text="@string/pref_exercise_high_knees_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/highKneesEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/sidePlankLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:text="@string/pref_exercise_side_plank_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/sidePlankEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tricepDipLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:text="@string/pref_exercise_tricep_dips_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/tricepDipEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/squatsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/coda"
+                android:text="@string/pref_exercise_squats_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                android:paddingRight="16dp"
+                android:layout_weight="2"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/squatsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/colorBlack"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="3" />
+
+        </TableRow>
+
+        <Button
+            android:id="@+id/submitChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/coda"
+            android:padding="8dp"
+            android:text="Update Changes"
+            android:textSize="24sp" />
+    </TableLayout>
+
+    <!--<View-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:alpha="0.5"-->
+        <!--android:background="@color/colorSecondary"-->
+        <!--android:backgroundTintMode="src_over"-->
+        <!--android:padding="8dp" />-->
+
+</ScrollView>
