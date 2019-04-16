@@ -34,6 +34,20 @@
         <item>11</item>
     </string-array>
 
+    <string name="define_ActionBarSherlock"></string>
+    <string name="library_ActionBarSherlock_author">scoute-dich</string>
+    <string name="library_ActionBarSherlock_authorWebsite"></string>
+    <string name="library_ActionBarSherlock_libraryName">Sieben</string>
+    <string name="library_ActionBarSherlock_libraryDescription">A small android application to perform the seven minutes workout.</string>
+    <string name="library_ActionBarSherlock_libraryVersion"></string>
+    <string name="library_ActionBarSherlock_libraryWebsite">https://github.com/scoute-dich/Sieben</string>
+    <!-- Possible values right now: apache_2_0, mit, bsd_2, bsd_3 -->
+    <string name="library_ActionBarSherlock_licenseId">gnu</string>
+    <!-- you still can define the license within your library definition, but it is recommend to use the id -->
+    <!-- possible fields for a custom license: *_licenseVersion, *_licenseLink, *_licenseContent -->
+    <string name="library_ActionBarSherlock_isOpenSource">true</string>
+    <string name="library_ActionBarSherlock_repositoryLink">https://github.com/scoute-dich/Sieben</string>
+
     <!-- Labels for the WelcomeScreenActivity and Fragment -->
     <string name="first_name_label">First Name:</string>
     <string name="last_name_label">Last Name:</string>
