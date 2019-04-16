@@ -114,8 +114,8 @@
 
             <ImageView
                 android:id="@+id/backWorkoutButton"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="left|bottom"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"

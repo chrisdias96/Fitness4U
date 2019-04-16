@@ -10,11 +10,14 @@
     <!-- Navigation Drawer -->
     <string name="title_workouts">Workouts</string>
     <string name="title_history">History</string>
-    <string name="title_tips">Tips &amp; Tricks</string>
+    <string name="title_inspiration">Get Inspiration</string>
     <string name="title_settings">Settings</string>
 
     <!-- WelcomeScreenFragment -->
     <string name="welcome_text">WELCOME</string>
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">48PMEff6t61HgpFyE216kAbBD</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">j413mnJuZqFpckXCWs5p97tYtA8Ez1QxDi5UFUT8evTsHnl5eL</string>
 
     <!-- Spinner dropdown for Height input -->
     <string-array name="heightDropdown">
