@@ -88,12 +88,12 @@
 
     <ImageButton
         android:id="@+id/rightButton"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="150dp"
         android:adjustViewBounds="false"
         android:background="@color/transparentBlack"
         android:cropToPadding="false"
-        android:scaleType="fitCenter"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
         app:layout_constraintBottom_toBottomOf="@+id/workoutViewPager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,10 +102,9 @@
 
     <ImageButton
         android:id="@+id/leftButton"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="150dp"
         android:background="@color/transparentBlack"
-        android:scaleType="fitCenter"
         android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
         app:layout_constraintBottom_toBottomOf="@+id/workoutViewPager"
         app:layout_constraintEnd_toStartOf="@+id/workoutViewPager"

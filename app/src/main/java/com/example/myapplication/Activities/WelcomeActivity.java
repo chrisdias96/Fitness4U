@@ -13,8 +13,8 @@ import android.view.MenuItem;
 
 import com.example.myapplication.Fragments.HistoryFragment;
 import com.example.myapplication.Fragments.MainFragment;
+import com.example.myapplication.Fragments.getInspiredFragment;
 import com.example.myapplication.R;
-import com.example.myapplication.Fragments.TipFragment;
 import com.example.myapplication.Fragments.UpdateWorkoutFragment;
 import com.example.myapplication.Fragments.WelcomeScreenFragment;
 import com.example.myapplication.Fragments.WorkoutFragment;
@@ -26,7 +26,7 @@ public class WelcomeActivity extends AppCompatActivity
         WorkoutFragment.OnFragmentInteractionListener,
         HistoryFragment.OnFragmentInteractionListener,
         UpdateWorkoutFragment.OnFragmentInteractionListener,
-        TipFragment.OnFragmentInteractionListener {
+        getInspiredFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
 
