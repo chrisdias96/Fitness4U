@@ -74,7 +74,8 @@ Fitness4You is compatiable for all Android phones and tablets of all sizes.
  1. [Picasso](https://github.com/square/picasso) 
  2. [Volley](https://github.com/google/volley)
  3. [AboutLibraries](https://github.com/mikepenz/AboutLibraries)
- 4. [BMI Calculator API](https://rapidapi.com/navii/api/bmi-calculator)
+ 4. [Twitter](https://developer.twitter.com)
+ 5. [Sieben](https://github.com/scoute-dich/Sieben)
  
  
  ## Contributor:
