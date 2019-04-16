@@ -16,17 +16,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.example.myapplication.Fragments.GraphChooserFragment;
 import com.example.myapplication.Fragments.HistoryFragment;
 import com.example.myapplication.Fragments.MainFragment;
 import com.example.myapplication.R;
-import com.example.myapplication.Fragments.TipFragment;
+import com.example.myapplication.Fragments.getInspiredFragment;
 import com.example.myapplication.Fragments.UpdateWorkoutFragment;
 import com.example.myapplication.Fragments.WelcomeScreenFragment;
 import com.example.myapplication.Fragments.WorkoutChooserFragment;
 import com.example.myapplication.Fragments.WorkoutFragment;
 import com.example.myapplication.Workouts.w1d1Fragment;
+import com.twitter.sdk.android.core.Twitter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity
                     w1d1Fragment.OnFragmentInteractionListener,
         HistoryFragment.OnFragmentInteractionListener,
         UpdateWorkoutFragment.OnFragmentInteractionListener,
-        TipFragment.OnFragmentInteractionListener {
+        getInspiredFragment.OnFragmentInteractionListener {
 
     public static FloatingActionButton fab;
     FragmentManager fm;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Twitter.initialize(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -119,6 +122,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (id == R.id.navigation_workouts) {
             fm.beginTransaction()
             .replace(R.id.content, new WorkoutFragment())
@@ -129,7 +139,7 @@ public class MainActivity extends AppCompatActivity
             .commit();
         } else if (id == R.id.navigation_tips) {
             fm.beginTransaction()
-            .replace(R.id.content, new TipFragment())
+            .replace(R.id.content, new getInspiredFragment())
             .commit();
         }
 
